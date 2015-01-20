@@ -38,5 +38,14 @@
         $scope.notes.splice($scope.notes.indexOf(note), 1);
       });
     };
+
+    $scope.saveNote = function(note) {
+      $http({
+        method: 'PUT',
+        url: '/notes/' + note._id,
+        data: note
+      })
+      note.editing = false;
+    };
   });
 })();

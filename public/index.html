@@ -5,10 +5,24 @@
       <label for="notes"> New Notes </lable>
       <input id="notes" data-ng-model='newNote.noteBody'>
       <button data-ng-click="saveNewNote()">Create new note</button>
-      <ul data-ng-repeat='note in notes'>
-        <li>{{note.noteBody}}<button ng-click="deleteNote(note)">Delete</button></li>
-      </ul>
 
+
+      <ul data-ng-repeat='note in notes'>
+        <li>
+            <div data-ng-hide='note.editing'>
+              {{note.noteBody}}
+              <button ng-click="deleteNote(note)">Delete</button>
+              <button ng-click="note.editing=true">Edit Notes</button>
+            </div>
+
+            <div data-ng-show='note.editing'>
+              <input data-ng-model="note.noteBody">
+              <button ng-click="saveNote(note)">Save</button>
+              <button ng-click="note.editing=false">Cancel</button>
+            </div>
+
+        </li>
+      </ul>
   </div>
 
   <script src="vendor/angular.js"></script>

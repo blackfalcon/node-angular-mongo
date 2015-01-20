@@ -28,7 +28,7 @@ app.put('/notes/:id', function(req, res) {
   delete note._id;
   Note.update({_id: req.params.id}, note, function(err, data) {
     if (err) return res.status(500).send({'err': 'internal server error'});
-    red.send(data);
+    res.send(data);
   });
 });
 
