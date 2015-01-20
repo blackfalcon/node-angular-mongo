@@ -1,3 +1,3 @@
-# It's a node/angular/mongo app
+# It's a MEAN app
 
-Wow, I am leanring how to use cmputers!
+Wow, I am learning how to use computers!
