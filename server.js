@@ -22,6 +22,22 @@ app.post('/notes', function(req, res) {
   });
 });
 
+app.put('/notes/:id', function(req, res) {
+  var note = req.body;
+  delete note._id;
+  Note.update({_id: req.params.id}, note, function(err, data) {
+    if (err) return res.status(500).send({'err': 'internal server error'});
+    red.send(data);
+  });
+});
+
+app.delete('/notes/:id', function(req, res) {
+  Note.remove({_id: req.params.id}, function(err) {
+    if (err) return res.status(500).send({'err': 'internal server error'});
+    res.send({'msg': 'success!'});
+  });
+});
+
 app.listen(3000, function() {
   console.log('server listening -p 3000');
 });
