@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Note = require('./models/notes');
 var app = express();
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 mongoose.connect('mongodb://localhost/notes');
 

@@ -1,0 +1,16 @@
+<body data-ng-app='notesApp'>
+  <div data-ng-controller="notesController">
+      <h1>My notes, bitches!</h1>
+      <form>
+      <label for="notes"> New Notes </lable>
+      <input id="notes" data-ng-model='newNote.noteBody'>
+      <button data-ng-click="saveNewNote()">Create new note</button>
+      <ul data-ng-repeat='note in notes'>
+        <li>{{note.noteBody}}<button ng-click="deleteNote(note)">Delete</button></li>
+      </ul>
+
+  </div>
+
+  <script src="vendor/angular.js"></script>
+  <script src="app/client.js"></script>
+</body>
